@@ -2499,14 +2499,14 @@ A X
 A Z
 B Z`;
 
-function gameFAQs(input) {
+function gameFAQs(input, options = 'total') {
     let score = 0;
     const rounds = input.split('\n');
     console.log('rounds', rounds);
     for (const round of rounds) {
         const opponent = round[0];
         const player = round[2];
-        score += roundScore(opponent, player);
+        score = options === 'total' ? score + roundScore(opponent, player) : score + roundOutcome(opponent, player);
     }
     return score;
 }
@@ -2578,5 +2578,43 @@ function roundScore(opponent, player) {
     const score = rules[opponent][player].value + rules[opponent][player].outcome
     return score;
 }
+/**
+ * X: lose,
+ * Y: draw
+ * Z: win
+ */
+
+function roundOutcome(opponent, outcome) {
+    const outcomeValue = {
+        X: {
+            value: 0,
+            moves: {
+                A: 3,
+                B: 1,
+                C: 2,
+            }
+        },
+        Y:  {
+            value: 3,
+            moves: {
+                A: 1,
+                B: 2,
+                C: 3,
+            }
+        },
+        Z: {
+            value: 6,
+            moves: {
+                A: 2,
+                B: 3,
+                C: 1,
+            }
+        },
+    }
+
+    const score = outcomeValue[outcome].value + outcomeValue[outcome].moves[opponent];
+    return score;
+}
 
 console.log(gameFAQs(input));
+console.log(gameFAQs(input, 'strat'))
