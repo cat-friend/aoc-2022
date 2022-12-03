@@ -322,14 +322,13 @@ function dayThree(rucksacks) {
 function dayThreePATRTOO(rucksacks) {
     let priorityScore = 0;
     for (let i = 0; i < rucksacks.length - 2; i += 3) {
-        const commonItems  = new Set();
         const first = rucksacks[i];
         const second = rucksacks[i + 1];
         const third = rucksacks[i + 2];
         for (const object of first) {
-            if (second.indexOf(object) !== -1 && third.indexOf(object) !== -1 && !commonItems.has(object)) {
-                commonItems.add(object);
+            if (second.indexOf(object) !== -1 && third.indexOf(object) !== -1) {
                 priorityScore += priorities.indexOf(object) + 1;
+                break;
             }
         }
     }
