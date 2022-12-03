@@ -1,0 +1,23 @@
+{
+  "name": "aoc-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "12-01.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cat-friend/aoc-2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cat-friend/aoc-2022/issues"
+  },
+  "homepage": "https://github.com/cat-friend/aoc-2022#readme",
+  "dependencies": {
+    "util": "^0.12.5"
+  }
+}

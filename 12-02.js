@@ -2502,7 +2502,6 @@ B Z`;
 function gameFAQs(input, options = 'total') {
     let score = 0;
     const rounds = input.split('\n');
-    console.log('rounds', rounds);
     for (const round of rounds) {
         const opponent = round[0];
         const player = round[2];
@@ -2618,3 +2617,4 @@ function roundOutcome(opponent, outcome) {
 
 console.log(gameFAQs(input));
 console.log(gameFAQs(input, 'strat'))
+// 10595, 9541

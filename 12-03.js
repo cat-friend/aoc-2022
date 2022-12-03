@@ -303,7 +303,7 @@ const rucksacks = input.split("\n");
 
 const priorities = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function dayThree(input) {
+function dayThree(rucksacks) {
     let priorityScore = 0;
     for (const rucksack of rucksacks) {
         const commonItems = new Set();
