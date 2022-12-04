@@ -1000,8 +1000,6 @@ const input = `8-13,10-65
 14-65,13-64`;
 
 const assignments = input.split("\n").map(ele => ele.split(","));
-console.log('assignments', assignments)
-// const pairs = assignments.map(ele => ele.split(","));
 
 function overlap(pairs, part2 = false) {
     let numOverlaps = 0;
@@ -1009,18 +1007,14 @@ function overlap(pairs, part2 = false) {
         const pairArray = pair.map(ele => ele.split("-"))
         const elfOne = pairArray[0].map(ele => parseInt(ele));
         const elfTwo = pairArray[1].map(ele => parseInt(ele));
-        console.log('...elfOne', elfOne[0], elfOne[1]);
-        console.log('...elfTwo', elfTwo[0], elfTwo[1]);
+        const [elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher] = [...elfOne, ...elfTwo];
         if (!part2) {
-            if (elfOne[0] <= elfTwo[0] && elfOne[1] >= elfTwo[1]) {
-                numOverlaps++
-            }
-            else if (elfTwo[0] <= elfOne[0] && elfTwo[1] >= elfOne[1]) {
+            if (fullyContained(elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher)) {
                 numOverlaps++
             }
         }
         else {
-            if (partialOverlap(elfOne, elfTwo)) {
+            if (partialOverlap(elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher)) {
                 numOverlaps++
             }
         }
@@ -1028,8 +1022,17 @@ function overlap(pairs, part2 = false) {
     return numOverlaps;
 }
 
-function partialOverlap(elfOne, elfTwo) {
-    const [elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher] = [...elfOne, ...elfTwo];
+function fullyContained(elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher) {
+    if (elfOneLower <= elfTwoLower && elfOneHigher >= elfTwoHigher) {
+        return true;
+    }
+    else if (elfTwoLower <= elfOneLower && elfTwoHigher >= elfOneHigher) {
+        return true;
+    }
+}
+
+function partialOverlap(elfOneLower, elfOneHigher, elfTwoLower, elfTwoHigher) {
+
     if (elfOneLower >= elfTwoLower && elfOneLower <= elfTwoHigher) {
         return true;
     }
