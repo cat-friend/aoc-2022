@@ -1,4 +1,4 @@
-import { inputs }  from 'inputs';
+import { input }  from 'input';
 
 function maxCalories(input, options) {
     const caloricArray = input.split("\n");
