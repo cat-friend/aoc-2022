@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/cat-friend/aoc-2022#readme",
   "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
     "util": "^0.12.5"
   }
 }

@@ -1,4 +1,4 @@
-import { input } from 'input';
+import { input } from './input.js';
 
 const assignments = input.split("\n").map(ele => ele.split(","));
 
