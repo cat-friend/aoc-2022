@@ -20,7 +20,6 @@ function maxCalories(input, options) {
     const min = allCalories[2];
     const mid = allCalories[1];
     const max = allCalories[0]
-    console.log(min, mid, max)
     const answer = options === 'topThree' ? min + mid + max : max;
     return answer;
 }
