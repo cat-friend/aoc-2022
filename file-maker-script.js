@@ -10,3 +10,15 @@ async function write() {
 }
 
 await write();
+
+async function mkdirAndMove() {
+    for (let i = 1; i <= 25; i++) {
+        const num = i < 10 ? '09' : i;
+        await execPromise(`mkdir 12-${num}`);
+        await execPromise(`mv `)
+    }
+}
+
+async function move() {
+    for (let )
+}
